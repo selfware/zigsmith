@@ -1,7 +1,5 @@
 const std = @import("std");
 
-const helper = @import("../../../helper.zig");
-
 pub fn build(b: *std.Build) !void {
     const upstream = b.dependency("pugixml", .{}).path("./src");
 
@@ -33,6 +31,4 @@ pub fn build(b: *std.Build) !void {
     });
     lib.linkLibCpp();
     b.installArtifact(lib);
-
-    try helper.create_wrapper(b, lib, b.path("./src/pugixml/root.zig"));
 }

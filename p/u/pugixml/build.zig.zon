@@ -1,6 +1,6 @@
 .{
     .name = "pugixml",
-    .version = "1.14.0", // 1.14
+    .version = "1.15.0", // 1.15
     .paths = .{
         "./build.zig",
         "./build.zig.zon",
@@ -9,8 +9,8 @@
 
     .dependencies = .{
         .pugixml = .{
-            .url = "https://github.com/zeux/pugixml/archive/refs/tags/v1.14.tar.gz",
-            .hash = "12207f28475bd82604ec3298d71b8461bec5ce3c0c55edd344324d2ea8d15154d8a2",
+            .url = "https://github.com/zeux/pugixml/archive/refs/tags/v1.15.tar.gz",
+            .hash = "122022329596368e533dadfb697271ebc258b09ab981fc9c22313ff7207b3bce3e5f",
         },
     },
 }
