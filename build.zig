@@ -9,11 +9,21 @@ pub fn build(b: *std.Build) !void {
         },
         .{
             .exe = "gofmt",
-            .args = &.{ "-l", "-w", "." },
+            .args = &.{ "-l", "-w", "./www" },
         },
         .{
             .exe = "shfmt",
-            .args = &.{ "-i", "2", "-l", "-w", "." },
+            .args = &.{ "-i", "2", "-l", "-w", "./scripts" },
+        },
+        .{
+            .exe = "prettier",
+            .args = &.{
+                "--tab-width",
+                "4",
+                "-l",
+                "-w",
+                "./www/static/public",
+            },
         },
     }, true);
 }

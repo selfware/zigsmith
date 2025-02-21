@@ -1,111 +1,111 @@
 @import "https://unpkg.com/open-color@1.9.1/open-color.css";
 
 :root {
-  --text-primary: var(--oc-gray-9);
-  --text-secondary: var(--oc-gray-5);
-  --bg-primary: var(--oc-gray-0);
-  --bg-secondary: var(--oc-gray-1);
-  --border: var(--oc-gray-4);
-  --border-active: var(--oc-blue-6);
+    --text-primary: var(--oc-gray-9);
+    --text-secondary: var(--oc-gray-5);
+    --bg-primary: var(--oc-gray-0);
+    --bg-secondary: var(--oc-gray-1);
+    --border: var(--oc-gray-4);
+    --border-active: var(--oc-blue-6);
 
-  @media (prefers-color-scheme: dark) {
-    --text-primary: var(--oc-gray-0);
-    --text-secondary: var(--oc-gray-6);
-    --bg-primary: var(--oc-gray-9);
-    --bg-secondary: var(--oc-gray-8);
-    --border: var(--oc-gray-7);
-    --border-active: var(--oc-blue-4);
-  }
+    @media (prefers-color-scheme: dark) {
+        --text-primary: var(--oc-gray-0);
+        --text-secondary: var(--oc-gray-6);
+        --bg-primary: var(--oc-gray-9);
+        --bg-secondary: var(--oc-gray-8);
+        --border: var(--oc-gray-7);
+        --border-active: var(--oc-blue-4);
+    }
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  max-width: 50rem;
-  margin: 0 auto;
-  font-family: sans-serif;
-  text-align: center;
-  color: var(--text-primary);
-  background-color: var(--bg-primary);
+    max-width: 50rem;
+    margin: 0 auto;
+    font-family: sans-serif;
+    text-align: center;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
 }
 
 #input {
-  height: 3rem;
-  gap: 0.5rem;
-  display: flex;
+    height: 3rem;
+    gap: 0.5rem;
+    display: flex;
 
-  input {
-    width: 100%;
-    padding-left: 1rem;
-    outline: none;
+    input {
+        width: 100%;
+        padding-left: 1rem;
+        outline: none;
 
-    &::placeholder {
-      color: var(--text-secondary);
+        &::placeholder {
+            color: var(--text-secondary);
+        }
     }
-  }
 
-  button {
-    width: 20%;
-    min-width: 4rem;
-    cursor: pointer;
+    button {
+        width: 20%;
+        min-width: 4rem;
+        cursor: pointer;
 
-    &:disabled {
-      opacity: 0.75;
-      cursor: not-allowed;
+        &:disabled {
+            opacity: 0.75;
+            cursor: not-allowed;
+        }
     }
-  }
 
-  input,
-  button {
-    height: 100%;
-    color: var(--text-primary);
-    background-color: var(--bg-primary);
-    border: 2px solid var(--border);
-    transition: all 0.2s ease;
-  }
+    input,
+    button {
+        height: 100%;
+        color: var(--text-primary);
+        background-color: var(--bg-primary);
+        border: 2px solid var(--border);
+        transition: all 0.2s ease;
+    }
 
-  input:focus,
-  button:hover:not(:disabled) {
-    border-color: var(--border-active);
-  }
+    input:focus,
+    button:hover:not(:disabled) {
+        border-color: var(--border-active);
+    }
 }
 
 #results {
-  margin-top: 0.5rem;
+    margin-top: 0.5rem;
 
-  .result {
-    margin-bottom: 0.5rem;
-    padding: 0 1rem;
-    border-left: 2px solid var(--border);
-    border-right: 2px solid var(--border);
+    .result {
+        margin-bottom: 0.5rem;
+        padding: 0 1rem;
+        border-left: 2px solid var(--border);
+        border-right: 2px solid var(--border);
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      font-size: 1.25rem;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.25rem;
 
-      .name {
-        font-weight: bold;
-      }
+            .name {
+                font-weight: bold;
+            }
+        }
+
+        .copy {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            display: block;
+            font-family: monospace;
+            font-size: 0.75rem;
+            background-color: var(--bg-secondary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.75;
+            }
+        }
     }
-
-    .copy {
-      margin-top: 0.5rem;
-      padding: 0.5rem;
-      display: block;
-      font-family: monospace;
-      font-size: 0.75rem;
-      background-color: var(--bg-secondary);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.75;
-      }
-    }
-  }
 }

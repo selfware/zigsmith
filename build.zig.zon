@@ -3,7 +3,7 @@
     .version = "0.0.0",
     .dependencies = .{
         .builz = .{
-            .url = "https://github.com/orvitpng/builz/archive/7e2354af64508fd21c535031ec9586434b854e80.zip",
+            .url = "git+https://github.com/orvitpng/builz#7e2354af64508fd21c535031ec9586434b854e80",
             .hash = "122019ce529d0596147965b6f0a5fad0f7b53de5db3817eea6bd339c1929f9ed0c75",
         },
     },
