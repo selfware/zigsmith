@@ -1,5 +1,5 @@
 -- Only execute this on a database where you don't care about the data. If you
--- do this in production, you're an idiot.
+-- use this in production, you're an idiot.
 
 REVOKE CONNECT ON DATABASE current_database() FROM PUBLIC;
 
