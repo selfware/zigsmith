@@ -5,6 +5,18 @@ const results = document.getElementById("results");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    setResults([
+        {
+            name: "pugixml",
+            builds: [
+                {
+                    version: "1.15.0",
+                    hash: "asdf",
+                },
+            ],
+        },
+    ]);
 });
 input.addEventListener(
     "input",
@@ -19,7 +31,10 @@ document.addEventListener("click", async ({ target }) => {
 });
 
 function setResults(data) {
-    data.forEach(({ name, latest }) => {
+    // I'm not sure this is an efficient or "correct" way to do this
+    while (results.firstChild) results.removeChild(results.firstChild);
+
+    data.forEach(({ name, builds }) => {
         const result = document.createElement("div");
         result.className = "result";
 
@@ -32,11 +47,11 @@ function setResults(data) {
 
         const versionSpan = document.createElement("span");
         versionSpan.className = "version";
-        versionSpan.textContent = latest.version;
+        versionSpan.textContent = builds[0].version;
 
         const code = document.createElement("code");
         code.className = "copy";
-        code.textContent = `https://dl.zigsmith.com/${name}/${latest.version}/${latest.hash}.tar.xz`;
+        code.textContent = `https://dl.zigsmith.com/${name}/${builds[0].version}/${builds[0].hash}.tar.xz`;
 
         header.append(nameSpan, versionSpan);
         result.append(header, code);

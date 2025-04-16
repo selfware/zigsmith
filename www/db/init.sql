@@ -11,3 +11,7 @@ WHERE
 
 DROP SCHEMA PUBLIC CASCADE;
 CREATE SCHEMA PUBLIC CASCADE;
+
+-- And now initialize everything.
+
+GRANT CONNECT ON DATABASE current_database() TO PUBLIC;

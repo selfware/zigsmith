@@ -17,7 +17,7 @@ func main() {
 	r := chi.NewRouter()
 	r.Use(middleware.Compress(9))
 
-	r.Get("/*", handlers.RootHandler)
+	r.Get("/", handlers.RootHandler)
 
 	fmt.Printf("Server listening at %s\n", listen)
 	if err := http.ListenAndServe(listen, r); err != nil {
