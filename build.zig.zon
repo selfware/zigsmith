@@ -1,14 +1,16 @@
 .{
-    .name = "zigsmith",
-    .version = "0.0.0",
-    .dependencies = .{
-        .builz = .{
-            .url = "git+https://github.com/orvitpng/builz#7e2354af64508fd21c535031ec9586434b854e80",
-            .hash = "122019ce529d0596147965b6f0a5fad0f7b53de5db3817eea6bd339c1929f9ed0c75",
-        },
-    },
+    .name = .zigsmith,
+    .fingerprint = 0x6b6f7413cb8f81c1,
     .paths = .{
         "./build.zig",
         "./build.zig.zon",
+    },
+
+    .version = "0.0.0",
+    .dependencies = .{
+        .builz = .{
+            .url = "git+https://github.com/orvitpng/builz#v0.1.0",
+            .hash = "1220bccc8e47526a2622a64ab20c3f39f91805274889571a2a3f259466dc1ad22293",
+        },
     },
 }

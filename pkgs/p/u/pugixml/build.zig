@@ -20,6 +20,7 @@ pub fn build(b: *std.Build) !void {
             "-Wold-style-cast",
             "-Wshadow",
             "-Wundef",
+            "-g",
             "-pedantic",
         },
     });
