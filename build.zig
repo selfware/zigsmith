@@ -7,23 +7,5 @@ pub fn build(b: *std.Build) !void {
             .exe = "zig",
             .args = &.{ "fmt", "." },
         },
-        .{
-            .exe = "gofmt",
-            .args = &.{ "-l", "-w", "./www" },
-        },
-        .{
-            .exe = "shfmt",
-            .args = &.{ "-i", "2", "-l", "-w", "./scripts" },
-        },
-        .{
-            .exe = "prettier",
-            .args = &.{
-                "--tab-width",
-                "4",
-                "-l",
-                "-w",
-                "./www/static/public",
-            },
-        },
     }, true);
 }

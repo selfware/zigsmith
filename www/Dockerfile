@@ -1,9 +1,13 @@
-FROM docker.io/golang:1-alpine
+FROM golang:alpine AS builder
 
-WORKDIR /root
+WORKDIR /src
 COPY . .
 RUN go mod download
-RUN go build -tags release -o /app
+RUN go build
+
+FROM alpine:latest
+
+COPY --from=builder /src/www /app
 
 EXPOSE 8080
-CMD ["/app"]
+ENTRYPOINT ["/app"]
