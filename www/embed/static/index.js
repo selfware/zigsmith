@@ -1,18 +1,12 @@
-import { countPackages, getCdnUrl, getHashes, searchPackages } from "./api.js";
+import { getHashes, searchPackages } from "./api.js";
+
+const { cdnUrl } = JSON.parse(document.getElementById("config").textContent);
+let searchController;
 
 const input = document.getElementById("input");
 const [search] = input.getElementsByTagName("input");
 const [button] = input.getElementsByTagName("button");
 let results = document.getElementById("results");
-
-let cdnUrl, searchController;
-try {
-    cdnUrl = await getCdnUrl();
-    reset();
-} catch (err) {
-    sendMessage(`CDN initialization failed: ${err.message}`, "error");
-    throw err;
-}
 
 input.addEventListener("submit", async e => {
     e.preventDefault();
@@ -49,12 +43,6 @@ document.addEventListener("click", async ({ target }) => {
     await navigator.clipboard.writeText(target.textContent);
     window.getSelection().selectAllChildren(target);
 });
-
-try {
-    search.placeholder = `Search ${await countPackages()} packages...`;
-} catch (err) {
-    console.log(err);
-}
 
 function PackageResult({name, versions}) {
     const result = document.createElement("div");

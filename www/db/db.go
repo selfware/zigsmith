@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"net"
+	"net/http"
 	"net/url"
 	"os"
 
@@ -12,7 +13,8 @@ import (
 	"github.com/golang-migrate/migrate/v4/source/iofs"
 	_ "github.com/jackc/pgx/v5/stdlib"
 
-	"zigsmith.com/www/fs"
+	"zigsmith.com/www/embed"
+	"zigsmith.com/www/log"
 )
 
 const migration = 0
@@ -20,7 +22,7 @@ const migration = 0
 var db *sql.DB
 
 func InitDb() error {
-	src, err := iofs.New(fs.Migrations, ".")
+	src, err := iofs.New(embed.Migrations, ".")
 	if err != nil {
 		return fmt.Errorf("iofs.New: %w", err)
 	}
@@ -53,6 +55,16 @@ func InitDb() error {
 
 func Close() error {
 	return db.Close()
+}
+
+func HttpError(w http.ResponseWriter, err error) bool {
+	if err == nil {
+		return false
+	}
+
+	log.Err.Printf("database failure: %v", err)
+	w.WriteHeader(http.StatusInternalServerError)
+	return true
 }
 
 func getPgURI() string {

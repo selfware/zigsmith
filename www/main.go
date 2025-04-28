@@ -8,6 +8,7 @@ import (
 	"syscall"
 	"time"
 
+	"zigsmith.com/www/cache"
 	"zigsmith.com/www/db"
 	"zigsmith.com/www/handlers"
 	"zigsmith.com/www/log"
@@ -23,6 +24,10 @@ func main() {
 	log.Out.Println("initializing database...")
 	if err := db.InitDb(); err != nil {
 		log.Err.Fatalf("failed to initialize database: %v", err)
+	}
+
+	if err := cache.InitCaches(); err != nil {
+		log.Err.Fatalf("failed to update caches: %v", err)
 	}
 
 	listen := os.Getenv("ZS_LISTEN")
@@ -66,8 +71,8 @@ func main() {
 
 func handler() *http.ServeMux {
 	r := http.NewServeMux()
-	r.Handle("/", handlers.RootHandler)
-	r.Handle("/api/", handlers.ApiHandler)
+	r.Handle("/", handlers.RootHandler())
+	r.Handle("/api/", http.StripPrefix("/api", handlers.ApiHandler()))
 
 	return r
 }
