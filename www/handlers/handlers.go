@@ -20,8 +20,8 @@ func RootHandler() http.Handler {
 	i.Mount("/", "tmpl", &tmpl.Context{
 		Tmpl: t,
 		Data: templateData{
-			CDNUrl:            os.Getenv("ZS_CDNURL"),
-			PackageCountCache: cache.PackageCountCache,
+			CDNUrl:       os.Getenv("ZS_CDNURL"),
+			PackageCount: cache.PackageCountCache,
 		},
 	})
 	i.Mount("/static/", "fs", embed.Static)
@@ -31,6 +31,7 @@ func RootHandler() http.Handler {
 
 func ApiHandler() http.Handler {
 	r := http.NewServeMux()
+	r.HandleFunc("POST /builds", api.BuildsHandler)
 	r.HandleFunc("GET /packages", api.PackagesHandler)
 	r.HandleFunc("GET /packages/{name}", api.PackageHandler)
 	r.HandleFunc("GET /packages/{name}/{version}", api.VersionHandler)
@@ -39,6 +40,6 @@ func ApiHandler() http.Handler {
 }
 
 type templateData struct {
-	CDNUrl            string
-	PackageCountCache *int
+	CDNUrl       string
+	PackageCount *int
 }

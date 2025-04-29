@@ -1,8 +1,10 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
         <title>zigsmith</title>
+        <meta name="description" content="A Zig package repository">
         <link rel="icon" href="data:," />
+
         <link rel="stylesheet" href="static/style.css" />
         <link rel="modulepreload" href="static/api.js">
 
@@ -14,7 +16,10 @@
     <body>
         <h1>zigsmith</h1>
         <form id="input">
-            <input type="text" placeholder="Search {{ .PackageCountCache }} packages..." />
+            <input
+                type="text"
+                placeholder="Search {{ .PackageCount }} packages..."
+            />
             <button type="submit" disabled>Search</button>
         </form>
         <div id="results"></div>

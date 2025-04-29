@@ -58,6 +58,18 @@ func GetHashes(ctx context.Context, name, version string) ([]string, error) {
 	`, name, version)
 }
 
+func InsertBuild(ctx context.Context, hash, name, version string) error {
+	_, err := db.ExecContext(ctx, `
+		INSERT INTO builds (hash, name, version)
+		VALUES ($1, $2, $3)
+	`, hash, name, version)
+	if err != nil {
+		return fmt.Errorf("sql.DB.ExecContext: %w", ErrExecFailed)
+	}
+
+	return nil
+}
+
 func queryOne(
 	ctx context.Context,
 	query string,
