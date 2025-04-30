@@ -4,7 +4,7 @@ set -exo pipefail
 
 mkdir -p zigsmith-out
 
-changed=$(git diff-tree --no-commit-id --name-only -r HEAD^ HEAD pkgs | cut -d "/" -f1-4 | sort -u)
+changed=$(git diff-tree --no-commit-id --name-only -r HEAD pkgs | cut -d "/" -f1-4 | sort -u)
 for dir in $changed; do
   script="$dir/build.zig.zon"
   name=$(./scripts/get_name.sh < "$script")
