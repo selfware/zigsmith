@@ -13,6 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: mlugg/setup-zig@v1
+        with:
+          version: 0.14.0
 
       - name: Build changed packages
         run: ./scripts/build_changed.sh > manifest.txt
