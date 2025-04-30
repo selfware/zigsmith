@@ -34,7 +34,7 @@ jobs:
       - name: Update database
         run: |
           while read -r hash name version; do
-            curl --fail -sS -X POST "${{ secrets.ZS_URL }}/api/builds" \
+            curl --fail -X POST "${{ secrets.ZS_URL }}/api/builds" \
               -H "Authorization: Bearer ${{ secrets.ZS_KEY }}" \
               -H "Content-Type: application/json" \
               -d "{\"hash\":\"$hash\",\"name\":\"$name\",\"version\":\"$version\"}"
