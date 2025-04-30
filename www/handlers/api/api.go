@@ -34,7 +34,7 @@ func BuildsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	cache.UpdatePackageCountCache()
+	cache.UpdateBuildCountCache()
 
 	w.WriteHeader(http.StatusCreated)
 }

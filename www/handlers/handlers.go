@@ -20,8 +20,8 @@ func RootHandler() http.Handler {
 	i.Mount("/", "tmpl", &tmpl.Context{
 		Tmpl: t,
 		Data: templateData{
-			CDNUrl:       os.Getenv("ZS_CDNURL"),
-			PackageCount: cache.PackageCountCache,
+			CDNUrl:     os.Getenv("ZS_CDNURL"),
+			BuildCount: cache.BuildCountCache,
 		},
 	})
 	i.Mount("/static/", "fs", embed.Static)
@@ -40,6 +40,6 @@ func ApiHandler() http.Handler {
 }
 
 type templateData struct {
-	CDNUrl       string
-	PackageCount *int
+	CDNUrl     string
+	BuildCount *int
 }

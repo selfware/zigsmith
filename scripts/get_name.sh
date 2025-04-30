@@ -10,7 +10,10 @@ const std = @import("std");
 const value = $(cat);
 
 pub fn main() void {
-    std.io.getStdOut().writer().print("{s}\n", .{value.version}) catch {};
+    std.io.getStdOut().writer().print(
+        "{s}\n",
+        .{@tagName(value.name)},
+    ) catch {};
 }
 EOF
 

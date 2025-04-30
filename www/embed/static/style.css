@@ -31,6 +31,7 @@
 body {
     max-width: 50rem;
     margin: 0 auto;
+    padding-inline: 1rem;
     text-align: center;
     font-family: sans-serif;
     color: var(--text-primary);
@@ -75,7 +76,7 @@ form {
 
     .result {
         margin-bottom: var(--gap);
-        padding: 0 calc(1rem - 2px);
+        padding-inline: var(--gap);
         border-inline: var(--border);
 
         .header {
@@ -94,7 +95,8 @@ form {
                 }
 
                 .version {
-                    width: 30%;
+                    width: 50%;
+                    min-width: 5rem;
                     text-align: center;
                 }
                 .hash {
@@ -109,15 +111,19 @@ form {
             display: block;
             font-family: monospace;
             font-size: 0.75rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
             cursor: pointer;
             background-color: var(--bg-secondary);
 
             &:hover {
                 opacity: var(--shade);
             }
+        }
+
+        code,
+        select {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 

@@ -7,10 +7,10 @@ import (
 	"fmt"
 )
 
-func CountPackages(ctx context.Context) (int, error) {
+func CountBuilds(ctx context.Context) (int, error) {
 	var count int
 	err := queryOne(ctx, `
-		SELECT COUNT(DISTINCT name)
+		SELECT COUNT(*)
 		FROM builds
 	`, []any{&count})
 

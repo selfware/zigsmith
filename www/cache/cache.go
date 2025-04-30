@@ -6,24 +6,24 @@ import (
 	"zigsmith.com/www/db"
 )
 
-var PackageCountCache *int = new(int)
+var BuildCountCache *int = new(int)
 
 func InitCaches() error {
-	if err := UpdatePackageCountCache(); err != nil {
+	if err := UpdateBuildCountCache(); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func UpdatePackageCountCache() error {
+func UpdateBuildCountCache() error {
 	ctx := context.Background()
 
-	count, err := db.CountPackages(ctx)
+	count, err := db.CountBuilds(ctx)
 	if err != nil {
 		return err
 	}
 
-	*PackageCountCache = count
+	*BuildCountCache = count
 	return nil
 }
