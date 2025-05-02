@@ -8,28 +8,13 @@ pub fn build(b: *std.Build) !void {
         .target = b.standardTargetOptions(.{}),
         .optimize = b.standardOptimizeOption(.{}),
     });
-    lib.addCSourceFile(.{
-        .file = upstream.path(b, "pugixml.cpp"),
-        .flags = &.{
-            "-Wall",
-            "-Wdouble-promotion",
-            "-Wcast-align",
-            "-Wcast-qual",
-            "-Werror",
-            "-Wextra",
-            "-Wold-style-cast",
-            "-Wshadow",
-            "-Wundef",
-            "-g",
-            "-pedantic",
-        },
-    });
-    lib.installHeadersDirectory(upstream, "./", .{
-        .include_extensions = &.{
-            "pugiconfig.hpp",
-            "pugixml.hpp",
-        },
-    });
+    lib.addCSourceFile(.{ .file = upstream.path(b, "pugixml.cpp") });
+    lib.installHeadersDirectory(
+        upstream,
+        "./",
+        .{ .include_extensions = &.{".hpp"} },
+    );
     lib.linkLibCpp();
+
     b.installArtifact(lib);
 }
