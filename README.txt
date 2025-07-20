@@ -12,8 +12,7 @@ easier. For example, the "zlib" package can be found in the `z/l` directory.
 
 To add a package to your project:
 
-1. Browse to [our website](https://zigsmith.com) and search for the package by
-   its name
+1. Browse to https://zigsmith.com and search for the package by its name
 
 1. Select the specific version and/or hash you'd like to use
 
