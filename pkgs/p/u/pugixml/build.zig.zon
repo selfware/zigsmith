@@ -11,7 +11,7 @@
     .dependencies = .{
         .pugixml = .{
             .url = "https://github.com/zeux/pugixml/archive/refs/tags/v1.15.tar.gz",
-            .hash = "122022329596368e533dadfb697271ebc258b09ab981fc9c22313ff7207b3bce3e5f",
+            .hash = "N-V-__8AADXtKQAiMpWWNo5TPa37aXJx68JYsJq5gfycIjE_",
         },
     },
 }

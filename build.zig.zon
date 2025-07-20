@@ -10,7 +10,7 @@
     .dependencies = .{
         .builz = .{
             .url = "git+https://github.com/orvitpng/builz#v0.1.0",
-            .hash = "1220bccc8e47526a2622a64ab20c3f39f91805274889571a2a3f259466dc1ad22293",
+            .hash = "builz-0.1.0-cCw-AQAMAAC8zI5HUmomIqZKsgw_OfkYBSdIiVcaKj8l",
         },
     },
 }
