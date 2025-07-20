@@ -4,7 +4,6 @@
     .paths = .{
         "./build.zig",
         "./build.zig.zon",
-        "./src",
     },
 
     .version = "1.15.0", // 1.15
