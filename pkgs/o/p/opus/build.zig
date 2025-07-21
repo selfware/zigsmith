@@ -4,7 +4,7 @@ pub fn build(b: *std.Build) void {
     const opus = b.dependency("opus", .{});
 
     const lib = b.addStaticLibrary(.{
-        .name = "pugixml",
+        .name = "opus",
         .target = b.standardTargetOptions(.{}),
         .optimize = b.standardOptimizeOption(.{}),
         .link_libc = true,
