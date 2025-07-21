@@ -11,7 +11,7 @@ pub fn build(b: *std.Build) void {
     lib.addCSourceFile(.{ .file = upstream.path(b, "pugixml.cpp") });
     lib.installHeadersDirectory(
         upstream,
-        "./",
+        ".",
         .{ .include_extensions = &.{".hpp"} },
     );
     lib.linkLibCpp();

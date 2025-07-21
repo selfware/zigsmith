@@ -1,0 +1,16 @@
+.{
+    .name = .opus,
+    .fingerprint = 0x8db4fd2cb929e306,
+    .paths = .{
+        "./build.zig",
+        "./build.zig.zon",
+    },
+
+    .version = "1.5.2", // 1.5.2
+    .dependencies = .{
+        .opus = .{
+            .url = "https://github.com/xiph/opus/archive/refs/tags/v1.5.2.tar.gz",
+            .hash = "N-V-__8AAMEO5AA16T-SYUVA1ipB1ctBxSMowU_ZD3tzi54M",
+        },
+    },
+}
