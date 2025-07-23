@@ -7,6 +7,7 @@ pub fn build(b: *std.Build) void {
         .name = "opus",
         .target = b.standardTargetOptions(.{}),
         .optimize = b.standardOptimizeOption(.{}),
+        .pic = b.option(bool, "pic", "Use PIC"),
         .link_libc = true,
     });
     lib.addCSourceFiles(.{

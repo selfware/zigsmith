@@ -7,6 +7,7 @@ pub fn build(b: *std.Build) void {
         .name = "pugixml",
         .target = b.standardTargetOptions(.{}),
         .optimize = b.standardOptimizeOption(.{}),
+        .pic = b.option(bool, "pic", "Use PIC"),
     });
     lib.addCSourceFile(.{ .file = upstream.path(b, "pugixml.cpp") });
     lib.installHeadersDirectory(
