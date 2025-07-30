@@ -8,7 +8,7 @@
 
     .version = "1.15.0", // 1.15
     .dependencies = .{
-        .pugixml = .{
+        .upstream = .{
             .url = "https://github.com/zeux/pugixml/archive/refs/tags/v1.15.tar.gz",
             .hash = "N-V-__8AADXtKQAiMpWWNo5TPa37aXJx68JYsJq5gfycIjE_",
         },

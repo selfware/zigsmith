@@ -1,0 +1,20 @@
+.{
+    .name = .rnnoise,
+    .fingerprint = 0xefee1162f18c3377,
+    .paths = .{
+        "./build.zig",
+        "./build.zig.zon",
+    },
+
+    .version = "0.2.0", // 0.2
+    .dependencies = .{
+        .upstream = .{
+            .url = "https://github.com/xiph/rnnoise/archive/refs/tags/v0.2.tar.gz",
+            .hash = "N-V-__8AAEAuBgA0CzfUau3OESmwp4GH5oDWBu9MZgTT9HMc",
+        },
+        .data = .{
+            .url = "https://media.xiph.org/rnnoise/models/rnnoise_data-0b50c45.tar.gz",
+            .hash = "N-V-__8AADBMUANV4DlOwEkgTLgPekM2KwuW-KXXAHH4fkRV",
+        },
+    },
+}

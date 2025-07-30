@@ -2,7 +2,7 @@ zigsmith
 ========
 
 A collection of Zig build scripts and wrapper libraries that make it easy to
-use C and C++ projects with Zig.
+use C and C++ projects with Zig. Currently everything targets 0.14.1.
 
 Adding a zigsmith package to your project
 -----------------------------------------

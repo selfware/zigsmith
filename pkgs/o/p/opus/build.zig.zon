@@ -8,7 +8,7 @@
 
     .version = "1.5.2", // 1.5.2
     .dependencies = .{
-        .opus = .{
+        .upstream = .{
             .url = "https://github.com/xiph/opus/archive/refs/tags/v1.5.2.tar.gz",
             .hash = "N-V-__8AAMEO5AA16T-SYUVA1ipB1ctBxSMowU_ZD3tzi54M",
         },
