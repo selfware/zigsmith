@@ -121,7 +121,7 @@ pub fn build(b: *std.Build) void {
     mod.addCSourceFiles(.{ .root = opus, .files = opus_src.base });
     mod.addCSourceFiles(.{ .root = silk, .files = silk_src.base });
     mod.addCSourceFiles(.{ .root = celt, .files = celt_src.base });
-    if (!float_api)
+    if (float_api)
         mod.addCSourceFiles(.{ .root = opus, .files = opus_src.float });
     if (fixed_point) {
         mod.addIncludePath(silk.path(b, "fixed"));
