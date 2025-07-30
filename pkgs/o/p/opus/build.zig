@@ -72,8 +72,8 @@ pub fn build(b: *std.Build) void {
         .HAVE_STDINT_H = true,
         .VAR_ARRAYS = true,
         .DISABLE_DEBUG_FLOAT = true,
-        .DISABLE_FLOAT_API = ton(!float_api),
         .FIXED_POINT = ton(fixed_point),
+        .DISABLE_FLOAT_API = ton(!float_api),
         .FLOAT_APPROX = ton(float_approx),
         .ENABLE_HARDENING = ton(hardening),
         .CUSTOM_MODES = ton(custom_modes),
@@ -125,14 +125,6 @@ pub fn build(b: *std.Build) void {
         mod.addCSourceFiles(.{ .root = opus, .files = opus_src.float });
     if (fixed_point) {
         mod.addIncludePath(silk.path(b, "fixed"));
-        mod.addCSourceFiles(.{ .root = silk, .files = silk_src.float.base });
-        if (avx2)
-            mod.addCSourceFiles(.{
-                .root = silk,
-                .files = silk_src.float.avx2,
-            });
-    } else {
-        mod.addIncludePath(silk.path(b, "float"));
         mod.addCSourceFiles(.{ .root = silk, .files = silk_src.fixed.base });
         if (sse4_1)
             mod.addCSourceFiles(.{
@@ -143,6 +135,14 @@ pub fn build(b: *std.Build) void {
             mod.addCSourceFiles(.{
                 .root = silk,
                 .files = silk_src.fixed.neon,
+            });
+    } else {
+        mod.addIncludePath(silk.path(b, "float"));
+        mod.addCSourceFiles(.{ .root = silk, .files = silk_src.float.base });
+        if (avx2)
+            mod.addCSourceFiles(.{
+                .root = silk,
+                .files = silk_src.float.avx2,
             });
     }
     if (sse) mod.addCSourceFiles(.{ .root = celt, .files = celt_src.sse });
