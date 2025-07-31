@@ -2,11 +2,10 @@ const std = @import("std");
 
 // TODO: add Ne10 and asm
 pub fn build(b: *std.Build) void {
+    const target = b.standardTargetOptions(.{});
+
     const upstream = b.dependency("upstream", .{}).path("");
     const data = b.dependency("data", .{}).path("");
-
-    const target = b.standardTargetOptions(.{});
-    const cpu = target.result.cpu;
 
     const deep_plc = b.option(
         bool,
@@ -54,6 +53,7 @@ pub fn build(b: *std.Build) void {
     ) orelse false;
     const dplc = deep_plc or dred;
 
+    const cpu = target.result.cpu;
     const features = cpu.features;
     const sse =
         cpu.arch.isX86() and std.Target.x86.featureSetHas(features, .sse);
@@ -67,6 +67,7 @@ pub fn build(b: *std.Build) void {
         aarch64_neon and std.Target.aarch64.featureSetHas(features, .dotprod);
 
     const config = b.addConfigHeader(.{}, .{
+        .OPUS_BUILD = true,
         .HAVE_LRINTF = true,
         .HAVE_LRINT = true,
         .HAVE_STDINT_H = true,
@@ -103,7 +104,6 @@ pub fn build(b: *std.Build) void {
         .pic = b.option(bool, "pic", "use position independent code (pic)"),
         .link_libc = true,
     });
-    mod.addCMacro("OPUS_BUILD", "1");
     mod.addCMacro("HAVE_CONFIG_H", "1");
     mod.addConfigHeader(config);
 

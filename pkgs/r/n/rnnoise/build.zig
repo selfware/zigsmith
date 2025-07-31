@@ -1,10 +1,10 @@
 const std = @import("std");
 
 pub fn build(b: *std.Build) void {
+    const target = b.standardTargetOptions(.{});
+
     const upstream = b.dependency("upstream", .{}).path("");
     const data = b.dependency("data", .{}).path("src");
-
-    const target = b.standardTargetOptions(.{});
 
     const little = b.option(
         bool,
@@ -27,10 +27,7 @@ pub fn build(b: *std.Build) void {
     mod.addIncludePath(rnnoise);
     mod.addIncludePath(data);
 
-    mod.addCSourceFiles(.{
-        .root = rnnoise,
-        .files = rnnoise_src.base,
-    });
+    mod.addCSourceFiles(.{ .root = rnnoise, .files = rnnoise_src.base });
     mod.addCSourceFiles(.{
         .root = data,
         .files = if (little)

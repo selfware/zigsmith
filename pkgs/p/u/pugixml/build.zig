@@ -10,7 +10,7 @@ pub fn build(b: *std.Build) void {
         .link_libcpp = true,
     });
 
-    mod.addCSourceFile(.{ .file = upstream.path(b, "pugixml.cpp") });
+    mod.addCSourceFiles(.{ .root = upstream, .files = pugixml_src });
 
     const lib = b.addLibrary(.{
         .name = "pugixml",
@@ -25,3 +25,5 @@ pub fn build(b: *std.Build) void {
 
     b.installArtifact(lib);
 }
+
+const pugixml_src = &[_][]const u8{"pugixml.cpp"};
