@@ -38,7 +38,7 @@ pub fn build(b: *std.Build) void {
 
     const lib = b.addLibrary(.{
         .name = "rnnoise",
-        .linkage = .dynamic,
+        .linkage = .static,
         .root_module = mod,
     });
     lib.installHeadersDirectory(include, "", .{});

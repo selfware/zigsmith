@@ -207,7 +207,6 @@ pub fn build(b: *std.Build) void {
 
     b.installArtifact(lib);
 }
-
 fn ton(value: bool) ?bool {
     return if (value) true else null;
 }
