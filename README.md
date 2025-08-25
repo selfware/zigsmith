@@ -1,7 +1,7 @@
 # zigsmith
 
 A collection of C and C++ packages ported to use the Zig build system. All
-packages currently target 0.14.0.
+packages currently target 0.15.1.
 
 ## Adding a zigsmith package to your project
 

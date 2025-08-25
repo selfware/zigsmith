@@ -1,20 +1,20 @@
 .{
     .name = .opus,
+    .version = "1.5.2",
     .fingerprint = 0x8db4fd2cb929e306,
     .paths = .{
-        "./build.zig",
-        "./build.zig.zon",
+        "build.zig",
+        "build.zig.zon",
     },
 
-    .version = "1.5.2", // 1.5.2
     .dependencies = .{
-        .upstream = .{
-            .url = "https://github.com/xiph/opus/archive/refs/tags/v1.5.2.tar.gz",
+        .upstream = .{ // 1.5.2
+            .url = "https://gitlab.xiph.org/xiph/opus/-/archive/v1.5.2/opus-v1.5.2.tar.gz",
             .hash = "N-V-__8AAMEO5AA16T-SYUVA1ipB1ctBxSMowU_ZD3tzi54M",
         },
         .data = .{
-            .url = "https://media.xiph.org/opus/models/opus_data-735117b.tar.gz",
-            .hash = "N-V-__8AALcCXw5ZRjmG_DGuoL9RbA_rT-uHlvrCdrK02Y55",
+            .url = "https://media.xiph.org/rnnoise/models/rnnoise_data-0b50c45.tar.gz",
+            .hash = "N-V-__8AADBMUANV4DlOwEkgTLgPekM2KwuW-KXXAHH4fkRV",
         },
     },
 }

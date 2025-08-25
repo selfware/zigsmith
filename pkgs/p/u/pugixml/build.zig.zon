@@ -1,14 +1,14 @@
 .{
     .name = .pugixml,
+    .version = "1.15.0",
     .fingerprint = 0x89628182349114b8,
     .paths = .{
-        "./build.zig",
-        "./build.zig.zon",
+        "build.zig",
+        "build.zig.zon",
     },
 
-    .version = "1.15.0", // 1.15
     .dependencies = .{
-        .upstream = .{
+        .upstream = .{ // 1.15
             .url = "https://github.com/zeux/pugixml/archive/refs/tags/v1.15.tar.gz",
             .hash = "N-V-__8AADXtKQAiMpWWNo5TPa37aXJx68JYsJq5gfycIjE_",
         },

@@ -1,16 +1,16 @@
 .{
     .name = .rnnoise,
+    .version = "0.2.0",
     .fingerprint = 0xefee1162f18c3377,
     .paths = .{
-        "./build.zig",
-        "./build.zig.zon",
+        "build.zig",
+        "build.zig.zon",
     },
 
-    .version = "0.2.0", // 0.2
     .dependencies = .{
-        .upstream = .{
-            .url = "https://github.com/xiph/rnnoise/archive/refs/tags/v0.2.tar.gz",
-            .hash = "N-V-__8AAEAuBgA0CzfUau3OESmwp4GH5oDWBu9MZgTT9HMc",
+        .upstream = .{ // 0.2+372f7b4b
+            .url = "https://gitlab.xiph.org/xiph/rnnoise/-/archive/372f7b4b76cde4ca1ec4605353dd17898a99de38/rnnoise-372f7b4b76cde4ca1ec4605353dd17898a99de38.tar.gz",
+            .hash = "N-V-__8AACAvBgC-wK9P5LDOjF8-yLLqxBIDBVuQy4NQic5Z",
         },
         .data = .{
             .url = "https://media.xiph.org/rnnoise/models/rnnoise_data-0b50c45.tar.gz",

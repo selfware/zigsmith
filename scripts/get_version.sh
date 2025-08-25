@@ -9,8 +9,13 @@ const std = @import("std");
 
 const value = $(cat);
 
-pub fn main() void {
-    std.io.getStdOut().writer().print("{s}\n", .{value.version}) catch {};
+pub fn main() !void {
+    var buf: [1024]u8 = undefined;
+    var stdout = std.fs.File.stdout().writer(&buf);
+    const writer = &stdout.interface;
+
+    try writer.print("{s}\n", .{value.version});
+    try writer.flush();
 }
 EOF
 
