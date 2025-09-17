@@ -1,5 +1,3 @@
-# Environmental Variables
-
 | Variable     | Description                            |
 |--------------|----------------------------------------|
 | `ZS_LISTEN`  | Address and port to bind to (optional) |
