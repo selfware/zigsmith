@@ -1,0 +1,21 @@
+.{
+    .name = .zigsmith,
+    .version = "0.15.1",
+    .fingerprint = 0x6b6f74137dec0174,
+    .paths = .{
+        "src",
+        "build.zig",
+        "build.zig.zon",
+    },
+
+    .dependencies = .{
+        .httpz = .{
+            .url = "https://github.com/karlseguin/http.zig/archive/18e0f2d2b64fcc8d8351e6b0b734170b46f91024.zip",
+            .hash = "httpz-0.0.0-PNVzrFm5BgBSwbIfjg-nFNI1HAJzzPVFHYInimLC8CfY",
+        },
+        .sqlite = .{
+            .url = "https://github.com/vrischmann/zig-sqlite/archive/refs/heads/zig-0.15.1.tar.gz",
+            .hash = "sqlite-3.48.0-F2R_a52ODgDFoOf0S8ZamFe2k7JJwqM0cDzOF6nxr_uO",
+        },
+    },
+}
