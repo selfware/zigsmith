@@ -1,6 +1,11 @@
-const Database = @import("Database.zig");
+const Self = @This();
+const data = @import("data.zig");
 const sqlite = @import("sqlite");
 
-db: Database,
-pkgs_count: *usize,
 cdn_url: []const u8,
+cache: *Cache,
+db: *sqlite.Db,
+
+pub const Cache = struct {
+    pkgs: usize,
+};
