@@ -1,7 +1,0 @@
-BEGIN;
-
-DROP TABLE builds;
-
-DROP EXTENSION citext;
-
-COMMIT;
